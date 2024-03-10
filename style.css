@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+.sidebar {
+  flex-basis: 200px;
+  background-color: #e6ffe6; /* Hellerer Grünton für die Sidebar */
+  padding: 20px;
+  order: -1;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fafafa; /* Sehr helles Grau für den Inhaltsbereich */
+}
+
+/* Stil für aufsteigende und absteigende Sortierrichtung */
+.sort-asc::after, .sort-desc::after {
+  margin-left: 5px;
+}
+
+.sort-asc::after {
+  content: "↑";
+}
+
+.sort-desc::after {
+  content: "↓";
+}
+
+.form-range {
+  width: 100px; /* Ändere die Breite der Slider nach Bedarf */
+  margin-right: 30px; /* Füge etwas Abstand zwischen den Slidern hinzu */
+}
+
+/* Stil für die Labels */
+label {
+  margin-right: 5px; /* Fügt etwas Abstand zwischen den Labels und den Slidern hinzu */
+  font-weight: bold; /* Mach die Labels fett */
+}
+
+/* Stile für Tablets */
+@media (max-width: 768px) {
+  .sidebar {
+    flex-basis: 150px; /* Verkleinern der Sidebar auf Tablets */
+  }
+  .form-range {
+    width: 80px; /* Anpassen der Breite der Slider für kleinere Bildschirme */
+  }
+}
+
+/* Stile für Mobilgeräte */
+@media (max-width: 480px) {
+  .sidebar {
+    order: 0;
+    width: 100%; /* Sidebar nimmt die volle Breite ein und wird oberhalb des Inhalts angezeigt */
+    padding: 10px; /* Reduzierung des Paddings auf Mobilgeräten */
+  }
+  .main-content {
+    flex-direction: column; /* Stapelt Sidebar und Content vertikal */
+  }
+  .content, .sidebar {
+    flex-basis: auto; /* Erlaubt den Elementen, ihre Größe basierend auf dem Inhalt anzupassen */
+  }
+  .form-range {
+    width: 100%; /* Slider nutzen die volle Breite */
+    margin-right: 0; /* Entfernt den rechten Margin */
+  }
+  label {
+    display: block; /* Labels werden über den Slidern angezeigt, nicht daneben */
+    margin-right: 0; /* Anpassung des rechten Margins */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px; /* Leichte Erhöhung der Schriftgröße für bessere Lesbarkeit */
+  }
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
